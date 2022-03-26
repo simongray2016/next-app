@@ -6,7 +6,8 @@ function Customer() {
       <div className="px-[10px]">
         <h4>Getting started</h4>
         <SwitchSelect
-          label="What type of financing do you need?*"
+          className="mt-8"
+          label="What type of financing do you need?"
           required={true}
         ></SwitchSelect>
       </div>

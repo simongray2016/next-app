@@ -14,7 +14,7 @@ function Layout({ children }) {
       <Header onOpenMenu={() => setIsMenuOpen(true)}></Header>
       <SideMenu
         open={isMenuOpen}
-        onOpen={null}
+        onOpen={() => null}
         onClose={toggleMenu()}
       ></SideMenu>
       {children}

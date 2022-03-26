@@ -3,6 +3,7 @@ import { Fragment, useState } from "react";
 import InputLabel from "./input-label";
 
 export interface SwitchSelectProps {
+  className: string;
   label: string;
   leftButton?: {
     text: string;
@@ -16,6 +17,7 @@ export interface SwitchSelectProps {
 }
 
 function SwitchSelect({
+  className = "",
   label = "",
   leftButton = { text: "Yes", value: true },
   rightButton = { text: "No", value: false },
@@ -29,7 +31,7 @@ function SwitchSelect({
       : "bg-white text-primary-black";
 
   return (
-    <Fragment>
+    <div className={className}>
       <InputLabel label={label} required={required}></InputLabel>
       <div className="mt-3 w-full border border-[#9D9D9D] rounded-button flex gap-[1px] bg-[#9D9D9D] overflow-hidden">
         <button
@@ -45,7 +47,7 @@ function SwitchSelect({
           {rightButton.text}
         </button>
       </div>
-    </Fragment>
+    </div>
   );
 }
 
