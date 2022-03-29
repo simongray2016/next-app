@@ -14,6 +14,8 @@ export interface SwitchSelectProps {
     value: any;
   };
   required: boolean;
+  value?: any;
+  onChange: (value: any) => void;
 }
 
 function SwitchSelect({
@@ -22,12 +24,12 @@ function SwitchSelect({
   leftButton = { text: "Yes", value: true },
   rightButton = { text: "No", value: false },
   required,
+  value = null,
+  onChange,
 }: SwitchSelectProps) {
-  const [value, setValue] = useState(null);
-
   const activeClass = (buttonValue: any) =>
     value === buttonValue
-      ? "bg-primary text-white"
+      ? "bg-primary text-white font-bold"
       : "bg-white text-primary-black";
 
   return (
@@ -35,14 +37,18 @@ function SwitchSelect({
       <InputLabel label={label} required={required}></InputLabel>
       <div className="mt-3 w-full border border-[#9D9D9D] rounded-button flex gap-[1px] bg-[#9D9D9D] overflow-hidden">
         <button
-          className={`${activeClass(leftButton.value)} w-1/2 text-body-1 p-2`}
-          onClick={() => setValue(leftButton.value)}
+          className={`${activeClass(
+            leftButton.value
+          )} w-1/2 text-body-1 p-2 leading-7`}
+          onClick={() => onChange(leftButton.value)}
         >
           {leftButton.text}
         </button>
         <button
-          className={`${activeClass(rightButton.value)} w-1/2 text-body-1 p-2`}
-          onClick={() => setValue(rightButton.value)}
+          className={`${activeClass(
+            rightButton.value
+          )} w-1/2 text-body-1 p-2 leading-7`}
+          onClick={() => onChange(rightButton.value)}
         >
           {rightButton.text}
         </button>

@@ -2,7 +2,7 @@ import { Fragment, useState } from "react";
 import Header from "./header";
 import SideMenu from "./side-menu";
 
-function Layout({ children }) {
+function Layout({ children, thinHeader = false }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => (event: any) => {
@@ -11,13 +11,18 @@ function Layout({ children }) {
 
   return (
     <Fragment>
-      <Header onOpenMenu={() => setIsMenuOpen(true)}></Header>
+      <Header
+        thinHeader={thinHeader}
+        onOpenMenu={() => setIsMenuOpen(true)}
+      ></Header>
       <SideMenu
         open={isMenuOpen}
         onOpen={() => null}
         onClose={toggleMenu()}
       ></SideMenu>
-      {children}
+      <div className="flex justify-center">
+        <div className="w-full max-w-3xl">{children}</div>
+      </div>
     </Fragment>
   );
 }
