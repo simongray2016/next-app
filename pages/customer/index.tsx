@@ -1,12 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import DocumentsRequired from "../components/accodions/document-required";
-import Eligibility from "../components/accodions/eligibility";
-import GradientButton from "../components/buttons/graident-button";
-import AppSelect, { AppSelecOption } from "../components/inputs/select";
-import SwitchSelect from "../components/inputs/switch-select";
-import { ETypeOfFinaning } from "../models/applicant.model";
+import DocumentsRequired from "../../components/accodions/document-required";
+import Eligibility from "../../components/accodions/eligibility";
+import GradientButton from "../../components/buttons/graident-button";
+import AppSelect, { AppSelecOption } from "../../components/inputs/select";
+import SwitchSelect from "../../components/inputs/switch-select";
+import { ETypeOfFinaning } from "../../models/applicant.model";
+
+export async function getServerSideProps(context) {
+  console.log('env: ', process.env.BASE_URL);
+  return {
+    props: {},
+  };
+}
 
 function Customer() {
   const numberOfApplicants: AppSelecOption[] = [
